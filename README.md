@@ -1,16 +1,26 @@
-# doctalk
+# Doctalk
+DocTalk — Chat with your PDF
 
-A new Flutter project.
+An AI-powered Flutter app that lets you upload any PDF and have a 
+conversation with it. Built with RAG architecture using Mistral AI 
+and Supabase pgvector.
 
-## Getting Started
+Tech Stack
+- Flutter (frontend)
+- FastAPI + Python (backend)
+- Mistral AI (embeddings + answers)
+- Supabase pgvector (vector storage)
+- Chat history with session persistence
 
-This project is a starting point for a Flutter application.
+How it works
+1. Upload any PDF
+2. App splits it into chunks and stores embeddings in Supabase
+3. When you ask a question, relevant chunks are retrieved
+4. Mistral answers using only the document context
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+How to run locally
+1. Clone the repo
+2. cd backend && pip install -r requirements.txt
+3. Fill in .env with your API keys
+4. uvicorn main:app --reload
+5. Run Flutter app and connect to localhost:8000
